@@ -38,7 +38,7 @@ buttons.forEach((button) => {
       number2 = "";
       oper = "";
       flag = 0;
-    } else if (button.id == "=") {
+    } else if (button.id == "equals") {
       if (flag == 1) {
         number1 = operate(parseInt(number1), parseInt(number2), oper);
         number2 = "";
@@ -54,7 +54,7 @@ buttons.forEach((button) => {
     } else if (flag == 1 && operators.includes(button.id)) {
       console.log(oper);
       number1 = operate(parseInt(number1), parseInt(number2), oper);
-      number2 ="";
+      number2 = "";
       oper = button.id;
       console.log(number1);
     } else {

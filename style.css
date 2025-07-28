@@ -1,20 +1,24 @@
 .calculator {
   display: flex;
   flex-direction: column;
-
- 
+  border: 1px solid rgb(212, 206, 206);
+  padding: 20px;
+  gap: 10px;
+  border-radius: 16px;
 }
 
 .display {
   display: flex;
-  border: 1px solid black;
-  padding: 10px;
-  
+  border: 1px solid rgb(212, 206, 206);
+  padding: 50px;
+  border-radius: 16px;
+  font-size: 20px;
+  background-color: rgb(205, 223, 217);
 }
 
 .buttons {
   display: flex;
-
+  gap: 8px;
 }
 
 .operator {
@@ -23,12 +27,35 @@
 }
 
 button {
-  padding: 30px; 
-  
+  padding: 40px;
+  gap: 8px;
+  background-color: rgba(236, 231, 231, 0.582);
+  border: 0px;
+  border-radius: 16px;
 }
 
-.calBody{
+.calBody {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
+.number {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+.operator {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+
+.operator button {
+  background-color: rgb(233, 195, 195);
+}
+
+#clear,#equals{
+  background-color: rgb(233, 195, 195);
+}
+
