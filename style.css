@@ -5,6 +5,8 @@
   padding: 20px;
   gap: 10px;
   border-radius: 16px;
+  font-family: "Gill Sans Extrabold", sans-serif;
+
 }
 
 .display {
@@ -57,5 +59,10 @@ button {
 
 #clear,#equals{
   background-color: rgb(233, 195, 195);
+  flex: auto;
+}
+#lastRow{
+  display: flex;
+ gap: 8px;
 }
 

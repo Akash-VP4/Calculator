@@ -1,4 +1,7 @@
 function operate(num1, num2, operator) {
+  if (isNaN(num1) || isNaN(num2)) {
+    return 0;
+  }
   // console.log(operator)
   if (operator == "+") {
     // console.log(num1+num2)
@@ -29,10 +32,27 @@ let number2 = "";
 let oper = "";
 let flag = 0;
 let dispContent = "";
+let prev = number1;
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
-    if (button.id == "clear") {
+    if (button.id == "decimal") {
+      if (prev == number1) {
+        number1 = number1 + ".";
+      } else if (prev == number2) {
+        number2 = number2 + ".";
+      }
+    } else if (button.id == "back") {
+      console.log(number1);
+      console.log(number1.length, number2.length, oper.length);
+      if (number2 != "" && number2.length != 0) {
+        number2 = number2.slice(0, -1);
+      } else if (oper.length != 0) {
+        oper = oper.slice(0, -1);
+      } else if (number1.length != 0) {
+        number1 = number1.slice(0, -1);
+      }
+    } else if (button.id == "clear") {
       display("0");
       number1 = "";
       number2 = "";
@@ -40,7 +60,7 @@ buttons.forEach((button) => {
       flag = 0;
     } else if (button.id == "equals") {
       if (flag == 1) {
-        number1 = operate(parseInt(number1), parseInt(number2), oper);
+        number1 = operate(parseFloat(number1), parseFloat(number2), oper);
         number2 = "";
         oper = "";
         flag = 0;
@@ -48,17 +68,22 @@ buttons.forEach((button) => {
       display(number1);
     } else if (flag == 0 && !operators.includes(button.id)) {
       number1 += button.id;
+      prev = number1;
     } else if (flag == 0) {
       flag = 1;
       oper = button.id;
+      prev = number2;
     } else if (flag == 1 && operators.includes(button.id)) {
       console.log(oper);
-      number1 = operate(parseInt(number1), parseInt(number2), oper);
+      number1 = operate(parseFloat(number1), parseFloat(number2), oper);
       number2 = "";
       oper = button.id;
+      prev = number2;
+
       console.log(number1);
     } else {
       number2 += button.id;
+      prev = number2;
     }
 
     display(number1 + oper + number2);
